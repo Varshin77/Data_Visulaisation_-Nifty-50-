@@ -169,30 +169,28 @@ plt.show()
 import matplotlib.pyplot as plt
 import pandas as pd
 
-# Load your actual data
-nifty_50 = pd.read_csv('/content/Nifty50.csv')  # Replace with the actual path to your data file
 
-# Convert 'Date' column to datetime
+nifty_50 = pd.read_csv('/content/Nifty50.csv') 
+
 nifty_50['Date '] = pd.to_datetime(nifty_50['Date '])
 
-# Plotting
 plt.figure(figsize=(12, 6))
 plt.plot(nifty_50['Date '], nifty_50['Close '], label='Close Price', color='blue', alpha=0.8)
 
-# Adding title and labels
+
 plt.title('NIFTY 50 Closing Trend')
 plt.xlabel('Date')
 plt.ylabel('Close Price')
 plt.legend()
 
-# Customizing the plot background color
-plt.gca().set_facecolor('#faf2f2')  # Using hexadecimal color code
+
+plt.gca().set_facecolor('#faf2f2')  
 plt.grid(True, linestyle='--', alpha=0.5)
 
-# Rotate date labels for better readability
+
 plt.xticks(rotation=45)
 
-# Show plot
+
 plt.tight_layout()
 plt.show()
 
@@ -200,18 +198,14 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# Load the data from the uploaded file
 nifty_50 = pd.read_csv('/content/Nifty50.csv')
 
-# Strip any leading/trailing whitespace from column names
 nifty_50.columns = nifty_50.columns.str.strip()
 
-# Convert 'Date' column to datetime
 nifty_50['Date'] = pd.to_datetime(nifty_50['Date'])
 
-# Adding hypothetical EPS and BVPS values for demonstration
-# Replace these with actual values if available
-np.random.seed(0)  # For reproducible results
+
+np.random.seed(0)  
 nifty_50['EPS'] = np.random.uniform(100, 200, len(nifty_50))
 nifty_50['BVPS'] = np.random.uniform(300, 400, len(nifty_50))
 
